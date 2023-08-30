@@ -19,8 +19,8 @@ interface IFetcherData {
 export const useWords = () => {
 	const [loading, setLoading] = useState(true);
 	const [words, setWords] = useState<IWord[]>([]);
-	const API_KEY = "";
-	const SPREADSHEET_ID = "";
+	const API_KEY = process.env.REACT_APP_API_KEY;
+	const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
 
 	const fetchGoogleSheetData = async (range: string): Promise<IFetcherData> => {
 		const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}?key=${API_KEY}`;
